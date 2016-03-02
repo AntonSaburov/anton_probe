@@ -14,6 +14,16 @@ public class Person {
     Sex gender;
     String emailAddress;
 
+    public Person(String name, Date birthday, Sex gender, String emailAddress) {
+        this.name = name;
+        this.birthday = birthday;
+        this.gender = gender;
+        this.emailAddress = emailAddress;
+    }
+
+    public Person() {
+    }
+
     public String getName() {
         return name;
     }

@@ -1,5 +1,6 @@
 package edu.javacourse.lambda;
 
+import edu.javacourse.collection.CollectionTest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
@@ -8,8 +9,15 @@ import java.util.function.Function;
 public class LambdaTest
 {
     public static void main(String[] args) {
-        List<Person> roster = new ArrayList<>();
+        lamdaDemo();
 
+        CollectionTest ct = new CollectionTest();
+        ct.demoCollection();
+    }
+
+    private static void lamdaDemo() {
+        List<Person> roster = new ArrayList<>();
+        
         printPersons(roster, new CheckPersonEligibleForSelectiveService());
 
         printPersons(roster, new CheckPerson()
@@ -23,46 +31,45 @@ public class LambdaTest
 
         printPersons(roster,
                 (Person p) -> p.getGender() == Person.Sex.MALE
-                && p.getAge() >= 18
-                && p.getAge() <= 25
+                        && p.getAge() >= 18
+                        && p.getAge() <= 25
         );
 
         printPersonsWithPredicate(roster,
                 p -> p.getGender() == Person.Sex.MALE
-                && p.getAge() >= 18
-                && p.getAge() <= 25
+                        && p.getAge() >= 18
+                        && p.getAge() <= 25
         );
 
         processPersons(roster,
                 p -> p.getGender() == Person.Sex.MALE
-                && p.getAge() >= 18
-                && p.getAge() <= 25,
+                        && p.getAge() >= 18
+                        && p.getAge() <= 25,
                 p -> p.printPerson()
         );
 
         processPersonsWithFunction(roster,
                 p -> p.getGender() == Person.Sex.MALE
-                && p.getAge() >= 18
-                && p.getAge() <= 25,
+                        && p.getAge() >= 18
+                        && p.getAge() <= 25,
                 p -> p.getEmailAddress(),
                 email -> System.out.println(email)
         );
 
         processElements(roster,
                 p -> p.getGender() == Person.Sex.MALE
-                && p.getAge() >= 18
-                && p.getAge() <= 25,
+                        && p.getAge() >= 18
+                        && p.getAge() <= 25,
                 p -> p.getEmailAddress(),
                 email -> System.out.println(email)
         );
 
         roster.stream().filter(
-                        p -> p.getGender() == Person.Sex.MALE
+                p -> p.getGender() == Person.Sex.MALE
                         && p.getAge() >= 18
                         && p.getAge() <= 25)
                 .map(p -> p.getEmailAddress())
                 .forEach(email -> System.out.println(email));
-        
     }
 
     public static void printPersonsOlderThan(List<Person> roster, int age) {
