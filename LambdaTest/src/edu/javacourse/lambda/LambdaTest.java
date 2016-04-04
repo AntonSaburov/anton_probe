@@ -17,6 +17,12 @@ public class LambdaTest
 
     private static void lamdaDemo() {
         List<Person> roster = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            double d = Math.random();
+            String n = String.format("%02d", i);
+            roster.add(new Person("Name_" + n, Math.round((float) (Math.random() * 50 + 20)),
+                    d > 0.5 ? Person.Sex.FEMALE : Person.Sex.MALE, "email_" + n));
+        }
         
         printPersons(roster, new CheckPersonEligibleForSelectiveService());
 
