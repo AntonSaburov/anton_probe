@@ -10,18 +10,18 @@ public class Person {
     }
 
     String name;
-    Date birthday;
+    int age;
     Sex gender;
     String emailAddress;
 
-    public Person(String name, Date birthday, Sex gender, String emailAddress) {
-        this.name = name;
-        this.birthday = birthday;
-        this.gender = gender;
-        this.emailAddress = emailAddress;
+    public Person() {
     }
 
-    public Person() {
+    public Person(String name, int age, Sex gender, String emailAddress) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.emailAddress = emailAddress;
     }
 
     public String getName() {
@@ -30,14 +30,6 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
     }
 
     public Sex getGender() {
@@ -56,13 +48,17 @@ public class Person {
         this.emailAddress = emailAddress;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" + "name=" + name + ", birthday=" + birthday + ", gender=" + gender + ", emailAddress=" + emailAddress + '}';
+    public int getAge() {
+        return age;
     }
 
-    public int getAge() {
-        return Calendar.getInstance().get(Calendar.YEAR);
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" + "name=" + name + ", age=" + age + ", gender=" + gender + ", emailAddress=" + emailAddress + '}';
     }
     
     public void printPerson() {
