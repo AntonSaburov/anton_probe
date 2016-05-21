@@ -6,8 +6,11 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+
 public class TimeTest
 {
+
     public static void main(String[] args) {
         int symbols = 3;
         int groupsCount = (int) Math.round(Math.pow(10, symbols));
