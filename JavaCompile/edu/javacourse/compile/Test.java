@@ -1,0 +1,1 @@
+package edu.javacourse.compile; import javacompile.SayHello;public class Test implements SayHello { public String sayHello(String xml) { return "Hello Compiler:" + xml; } }
