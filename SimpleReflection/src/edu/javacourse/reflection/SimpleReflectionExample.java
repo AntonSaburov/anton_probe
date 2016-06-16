@@ -3,6 +3,7 @@
  */
 package edu.javacourse.reflection;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -27,6 +28,10 @@ public class SimpleReflectionExample
         
         // Обращение к методу
         demoReflectionMethod(example, sc);
+        
+        // ОБращение к приватному конструктору
+        Class example2 = Class.forName("edu.javacourse.reflection.PrivateClass");
+        demoPrivateConstructor(example2);
     }
 
     private static void demoReflectionField(Class example, SimpleClass sc) throws Exception {
@@ -59,6 +64,13 @@ public class SimpleReflectionExample
         // Вызвать метод с помощью invoke - передать туда объект и два параметра типа строка
         String answer = (String)concat.invoke(sc, "1", "2");
         System.out.println("Concat:" + answer);
+    }
+
+    private static void demoPrivateConstructor(Class example) throws Exception {
+        Constructor constr = example.getDeclaredConstructor((Class[]) null);
+        constr.setAccessible(true);
+        PrivateClass pr = (PrivateClass)constr.newInstance((Object[]) null);
+        pr.sayHello();
     }
     
 }
