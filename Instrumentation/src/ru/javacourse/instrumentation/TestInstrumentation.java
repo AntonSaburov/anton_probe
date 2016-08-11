@@ -3,6 +3,10 @@ package ru.javacourse.instrumentation;
 import java.lang.instrument.Instrumentation;
 
 /**
+ 
+ see http://docs.oracle.com/javase/7/docs/api/java/lang/instrument/package-summary.html
+ 
+ 
  * Create JAR file with class and MANIFEST.MF
  * MANIFEST.MF must contain:
  * 
