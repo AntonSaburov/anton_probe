@@ -109,5 +109,8 @@ local.properties
 .texlipse
 /Patterns/nbproject/private/
 /Instrumentation/nbproject/private/
+<<<<<<< HEAD
 /ServletInclude/nbproject/private/
 /JavaApplication35/nbproject/private/
+=======
+>>>>>>> 230665c8e0c509ec915903ec611a2bcbdc28dc9e
