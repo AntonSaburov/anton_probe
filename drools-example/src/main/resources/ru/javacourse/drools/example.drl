@@ -1,8 +1,0 @@
-package ru.javacourse.drools
-
-rule "CommonRule" dialect "java"
-when
-    true
-then
-    System.out.println("OK");
-end
