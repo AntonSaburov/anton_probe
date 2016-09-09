@@ -1,0 +1,33 @@
+package se.drools.test
+
+import java.util.List;
+
+import se.test.Person;
+import se.test.Message;
+
+global java.util.List oldList;
+global java.util.List newList;
+
+query isDifferentState(Object p1, Object p2)
+    eval(oldList.contains(p1))
+    eval(newList.contains(p2))
+    eval(p1 != p2)
+end
+
+query personsHaveEqualId(Person p1, Person p2)
+    eval(p1.getName().equals(p2.getName()))
+end
+
+query isAppliedPerson(Person p1, Person p2)
+    isDifferentState(p1, p2;)
+    personsHaveEqualId(p1, p2;)
+end
+
+query messagesHaveEqualId(Message m1, Message m2)
+    eval(m1.getMessage().equals(m2.getMessage()))
+end
+
+query isAppliedMessage(Message m1, Message m2)
+    isDifferentState(m1, m2;)
+    messagesHaveEqualId(m1, m2;)
+end
