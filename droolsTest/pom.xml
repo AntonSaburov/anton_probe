@@ -20,16 +20,9 @@
     <dependencies>
 
         <dependency>
-            <groupId>org.kie</groupId>
-            <artifactId>kie-api</artifactId>
-            <!--<groupId>org.drools</groupId>-->
-            <!--<artifactId>drools-core</artifactId>-->
-            <version>${kie.version}</version>
-        </dependency>
-        <dependency>
             <groupId>org.drools</groupId>
             <artifactId>drools-compiler</artifactId>
-            <version>${kie.version}</version>
+            <version>6.3.0.Final-redhat-7</version>
         </dependency>
 
         <dependency>
@@ -49,6 +42,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -59,9 +53,9 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.2</version>
                     <configuration>
-                        <source>1.7</source>
-                        <target>1.7</target>
-                        <compilerVersion>1.7</compilerVersion>
+                        <source>1.8</source>
+                        <target>1.8</target>
+                        <compilerVersion>1.8</compilerVersion>
                         <encoding>utf8</encoding>
                     </configuration>
                 </plugin>

@@ -14,7 +14,7 @@ import java.util.List;
 
 public class DroolsTest
 {
-    private static final int COUNT = 1000000;
+    private static final int COUNT = 10;
     private static final int ALL = 1;
 
     public static void main(String[] args) throws IntrospectionException {
