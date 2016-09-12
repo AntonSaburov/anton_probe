@@ -1,0 +1,21 @@
+package se.drools.test;
+
+rule "TestPerson"
+when
+    oldPerson : Person() from oldList
+    newPerson : Person() from newList
+//    isAppliedPerson(oldPerson, newPerson;)
+    personsHaveEqualId(oldPerson, newPerson;)
+then
+    System.out.println("Old Person:" + oldPerson + "  New Person:" + newPerson);
+end
+
+rule "TestMessage"
+when
+    oldM : Message() from oldList
+    newM : Message() from newList
+//    isAppliedMessage(oldM, newM;)
+    messagesHaveEqualId(oldM, newM;)
+then
+    System.out.println("Old Message:" + oldM + "  New Message:" + newM);
+end

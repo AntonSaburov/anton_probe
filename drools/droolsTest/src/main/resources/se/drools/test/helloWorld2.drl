@@ -1,0 +1,20 @@
+package se.drools.test
+import se.test.CashFlow;
+
+expander helloWorld1.dsl
+
+rule "Напечатай сумму"
+when
+//  Номер счета равен "12345"
+    Для счета
+then
+    Напечатать сумму
+end
+
+
+rule "Напечатай слово"
+when
+    Всегда
+then
+    Напечатать "чепуха"
+end

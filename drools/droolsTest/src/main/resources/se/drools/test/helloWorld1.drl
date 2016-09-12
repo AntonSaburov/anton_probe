@@ -1,0 +1,169 @@
+package se.drools.test
+
+import se.test.Account;
+import se.test.AccountPeriod;
+import se.test.CashFlow;
+import se.test.Message;
+import se.test.Person;
+import se.test.IsAdult;
+import se.test.IsChild;
+import se.test.AdultBusPass;
+import se.test.ChildBusPass;
+
+
+import function se.test.CashFlow.checkFunction;
+import java.util.Map;
+
+global java.util.List list;
+global java.util.Map map;
+//global java.lang.Boolean result
+
+function boolean checkFunction(String request) {
+    return request.equals("12345");
+}
+
+/*
+rule "Hello World1" dialect "mvel"
+  when
+      exists Message()
+      m : Message( status == Message.HELLO )
+  then
+      System.out.println("Rule 1");
+      m.printMessage();
+      modify ( m ) { message = "Goodbyte cruel world 1", status = Message.GOODBYE };
+end
+
+rule "Hello World2" dialect "mvel"
+  when
+      exists Message()
+      m : Message( status == Message.GOOD_DAY || message == 'Goodbyte cruel world 1' )
+  then
+      System.out.println("Rule 2");
+      m.printAll();
+      modify ( m ) { message = "Goodbyte cruel world 2", status = Message.GOODBYE };
+end
+
+rule "Test amount" dialect "mvel"
+agenda-group "calculation"
+when
+  ac : CashFlow(amount > 0 )
+then
+  System.out.println("Test amount Rule:" + ac.amount);
+  insertLogical(new Message(ac));
+end
+*/
+
+
+
+rule "increase balance for credits" dialect "mvel"
+agenda-group "calculation"
+when
+  ap : AccountPeriod()
+  ac : Account( $accountNo : accountNo )
+  cf : CashFlow( type == CREDIT,
+            accountNo == $accountNo,
+            date >= ap.start && <= ap.end,
+            $amount : amount)
+//  CheckAmount(cf.accountNo, 0;)
+then
+  System.out.println("Rule: increase balance for credits:" + $amount);
+  ac.balance = ac.balance + $amount;
+end
+
+rule "decrease balance for debits" dialect "mvel"
+agenda-group "calculation"
+when
+  ap : AccountPeriod()
+  ac : Account( $accountNo : accountNo )
+  CashFlow( type == DEBIT,
+            accountNo == $accountNo,
+            date >= ap.start && <= ap.end,
+            $amount : amount)
+then
+  System.out.println("Rule: decrease balance for debits:" + $amount);
+  ac.balance = ac.balance - $amount;
+end
+
+rule "Print balance for AccountPeriod" dialect "mvel"
+agenda-group "report"
+no-loop
+//salience -50
+when
+//  eval(se.test.CashFlow.checkFunction())
+//  eval(checkFunction("12345"))
+//  Result is 12345
+  ap : AccountPeriod()
+  ac : Account()
+then
+  exit = new String("0987654321");
+//  Only for Sesionful
+//  list.add("Balance for account:" + ac.accountNo + " = " + ac.balance);
+//  System.out.println("Rule: Print balance for AccountPeriod:" + hello("Anton"));
+  System.out.println( "Balance for account:" + ac.accountNo + " = " + ac.balance );
+/*
+  System.out.println();
+  System.out.println(kcontext.match);
+  System.out.println();
+  System.out.println(kcontext.rule);
+  System.out.println();
+  System.out.println(kcontext.rule.metaData);
+*/
+end
+
+
+query Amount(int x)
+  cash1 : CashFlow( amount > 0 )
+//  cash2 : CashFlow( amount > 0 )
+end
+
+/*
+query CheckAmount(String $accountNo, int x)
+  person : CashFlow( accountNo == $accountNo, amount > x)
+end
+
+function String hello(String name) {
+    return "Hello "+name+"!";
+}
+*/
+
+rule "Infer Child" dialect "mvel"
+//salience map[kcontext.rule.name]
+salience 10
+when
+    $p : Person( age < 18 )
+then
+//    System.out.println("Infer Child");
+    insertLogical( new IsChild( $p ) );
+end
+
+rule "Infer Adult" dialect "mvel"
+//salience map[kcontext.rule.name]
+salience 10
+when
+    $p : Person( age >= 18 )
+then
+//    System.out.println("Infer Adult");
+    insertLogical( new IsAdult( $p ) );
+end
+
+rule "Issue Child Bus Pass" dialect "mvel"
+//salience map[kcontext.rule.name]
+salience 100
+when
+    $p : Person( )
+    IsChild( person == $p )
+then
+    $p.age = 20;
+//    System.out.println("Child:" + $p.getName());
+end
+
+rule "Issue Adult Bus Pass" dialect "mvel"
+//salience map[kcontext.rule.name]
+salience 100
+when
+    $p : Person()
+    IsAdult( person == $p )
+then
+    $p.age = 20;
+//    System.out.println("Adult:" + $p.getName());
+end
