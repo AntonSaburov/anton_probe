@@ -46,7 +46,7 @@ import java.util.Map;
 
 public class DroolsTest
 {
-    private static final int COUNT = 10;
+    private static final int COUNT = 1;
     private static final int ALL = 1;
 
     private double withBuilder = 0.0;
@@ -59,8 +59,8 @@ public class DroolsTest
         try {
             for(int j=0; j<ALL; j++) {
                 dt.testWithHelper(false);
-//                dt.testWithConfigFile(false);
-//                dt.testWithBuilder(false);
+                dt.testWithConfigFile(false);
+                dt.testWithBuilder(false);
             }
             for(int j=0; j<ALL; j++) {
                 dt.testWithHelper(false);
@@ -71,8 +71,8 @@ public class DroolsTest
             }
 //            dt.useDsl();
             System.out.println("---------->>>>>>>>>>>>>>>>>>>");
-//            System.out.println("Use Builder:" + (dt.withBuilder/ALL));
-//            System.out.println("Use Config:" + (dt.withConfig/ALL));
+            System.out.println("Use Builder:" + (dt.withBuilder/ALL));
+            System.out.println("Use Config:" + (dt.withConfig/ALL));
             System.out.println("Use Helper:" + (dt.withHelper/COUNT));
         } catch (IOException e) {
             e.printStackTrace();
@@ -194,7 +194,7 @@ public class DroolsTest
 //        agenda.getAgendaGroup( "report" ).setFocus();
 //        agenda.getAgendaGroup( "calculation" ).setFocus();
 
-//        kieSession.fireAllRules();
+        kieSession.fireAllRules();
 
         QueryResults results = kieSession.getQueryResults("Amount", new Object[] {0});
         for ( QueryResultsRow row : results ) {

@@ -1,20 +1,22 @@
 package se.drools.test
 import se.test.CashFlow;
 
-expander helloWorld1.dsl
+global java.util.List list;
+
+//expander helloWorld1.dsl
 
 rule "Напечатай сумму"
 when
 //  Номер счета равен "12345"
-    Для счета
+//    Для счета
 then
-    Напечатать сумму
+//    Напечатать сумму
 end
 
 
 rule "Напечатай слово"
 when
-    Всегда
+//    Всегда
 then
-    Напечатать "чепуха"
+//    Напечатать "чепуха"
 end

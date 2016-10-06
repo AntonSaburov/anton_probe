@@ -1,14 +1,18 @@
 package se.test;
 
 import org.drools.compiler.compiler.DroolsParserException;
+import org.drools.core.definitions.rule.impl.RuleImpl;
 import org.kie.api.KieBase;
+import org.kie.api.definition.rule.Rule;
 import org.kie.api.io.ResourceType;
 import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.rule.AgendaFilter;
 import org.kie.internal.io.ResourceFactory;
 import org.kie.internal.utils.KieHelper;
 
 import java.beans.IntrospectionException;
 import java.io.IOException;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,10 +39,13 @@ public class DroolsTest
                 .addResource(ResourceFactory.newClassPathResource("se/drools/test/functionTestCommon.drl"), ResourceType.DRL)
                 .build();
 
+        RuleImpl rule = (RuleImpl) kieBase.getRule("", "");
+
         personCheck(kieBase);
     }
 
     private void personCheck(KieBase kieBase) {
+        URLClassLoader ucl;
         final KieSession kieSession = kieBase.newKieSession();
 
         List oldList = new ArrayList<>();
