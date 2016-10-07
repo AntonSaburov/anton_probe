@@ -1,0 +1,51 @@
+package edu.javacourse.thread;
+
+import java.util.concurrent.CountDownLatch;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+public class ThreadController 
+{
+    private volatile int coordinator = 1;
+    private CountDownLatch cdl = new CountDownLatch(1);
+
+    public synchronized void executeThread1() {
+        System.out.println("Thread 1 is started:" + coordinator);
+        while(coordinator != 1) {
+            try {
+                wait();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        }
+        System.out.println("Thread 1 is executed:" + coordinator);
+        coordinator = 2;
+        notifyAll();
+    }
+
+    public synchronized void executeThread2() {
+        System.out.println("Thread 2 is started:" + coordinator);
+        while(coordinator != 2) {
+            try {
+                wait();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        }
+        System.out.println("Thread 2 is executed:" + coordinator);
+        coordinator = 3;
+        notifyAll();
+    }
+
+    public synchronized void executeThread3() {
+        System.out.println("Thread 3 is started:" + coordinator);
+        while(coordinator != 3) {
+            try {
+                wait();
+            } catch (InterruptedException ex) {
+                ex.printStackTrace();
+            }
+        }
+        System.out.println("Thread 3 is executed:" + coordinator);
+    }
+}

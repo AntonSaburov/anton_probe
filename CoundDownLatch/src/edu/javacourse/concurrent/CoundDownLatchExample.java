@@ -6,12 +6,11 @@ public class CoundDownLatchExample
 {
     public static void main(String[] args) throws InterruptedException {
         final int N = 5;
-        
+
         CountDownLatch startSignal = new CountDownLatch(1);
         CountDownLatch doneSignal = new CountDownLatch(N);
 
-        for (int i = 0; i < N; ++i) // create and start threads
-        {
+        for (int i = 0; i < N; ++i) {
             new Thread(new Worker(startSignal, doneSignal)).start();
         }
 
@@ -25,11 +24,11 @@ public class CoundDownLatchExample
         try {
             Thread.sleep(2000);
             System.out.println("doSomethingElse is DONE: " + phase);
-        } catch(Exception e) {
-            
+        } catch (Exception e) {
+
         }
     }
-    
+
 }
 
 class Worker implements Runnable

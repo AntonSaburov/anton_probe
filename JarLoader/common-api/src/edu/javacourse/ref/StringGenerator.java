@@ -1,6 +1,6 @@
 package edu.javacourse.ref;
 
-public interface StringGenerator 
+public abstract class StringGenerator 
 {
-    String generate();
+    public abstract String generate();
 }

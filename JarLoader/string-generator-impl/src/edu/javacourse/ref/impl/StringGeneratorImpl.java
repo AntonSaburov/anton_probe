@@ -2,7 +2,7 @@ package edu.javacourse.ref.impl;
 
 import edu.javacourse.ref.StringGenerator;
 
-public class StringGeneratorImpl implements StringGenerator
+public class StringGeneratorImpl extends StringGenerator
 {
 
     @Override
