@@ -16,8 +16,8 @@ public class CoundDownLatchExample
 
         doSomethingElse(1);            // don't let run yet
         startSignal.countDown();      // let all threads proceed
-        doSomethingElse(2);
         doneSignal.await();           // wait for all to finish
+        doSomethingElse(2);
     }
 
     private static void doSomethingElse(int phase) {

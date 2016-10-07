@@ -11,6 +11,7 @@ public class Thread1 implements Runnable
     @Override
     public void run() {
         threadController.executeThread1();
+        threadController.setCoordinator(2);
     }
 
 }

@@ -7,8 +7,11 @@ import java.util.logging.Logger;
 public class ThreadController 
 {
     private volatile int coordinator = 1;
-    private CountDownLatch cdl = new CountDownLatch(1);
 
+    public void setCoordinator(int coordinator) {
+        this.coordinator = coordinator;
+    }
+    
     public synchronized void executeThread1() {
         System.out.println("Thread 1 is started:" + coordinator);
         while(coordinator != 1) {
@@ -19,7 +22,6 @@ public class ThreadController
             }
         }
         System.out.println("Thread 1 is executed:" + coordinator);
-        coordinator = 2;
         notifyAll();
     }
 
@@ -33,7 +35,6 @@ public class ThreadController
             }
         }
         System.out.println("Thread 2 is executed:" + coordinator);
-        coordinator = 3;
         notifyAll();
     }
 
