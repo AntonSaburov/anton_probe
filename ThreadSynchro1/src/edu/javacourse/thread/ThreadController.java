@@ -1,9 +1,5 @@
 package edu.javacourse.thread;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 public class ThreadController 
 {
     private volatile int coordinator = 1;

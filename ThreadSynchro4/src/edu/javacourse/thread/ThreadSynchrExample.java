@@ -31,6 +31,7 @@ public class ThreadSynchrExample
                 }
                 lock.readLock().lock();
                 try {
+                    System.out.println("Reading");
                     Thread.sleep(1000);
                 } catch (Exception e) {
                 }

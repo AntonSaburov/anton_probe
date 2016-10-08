@@ -8,7 +8,7 @@ public class Thread1  extends Thread
             System.out.println("Thread 1 is started");
             Thread2 t2 = new Thread2();
             t2.start();
-//            t2.join();
+            t2.join();
             System.out.println("Thread 1 is done");
         } catch(Exception ex) {
             ex.printStackTrace();

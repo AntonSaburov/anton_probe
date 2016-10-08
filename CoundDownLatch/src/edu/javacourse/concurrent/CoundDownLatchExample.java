@@ -43,6 +43,7 @@ class Worker implements Runnable
 
     public void run() {
         try {
+            System.out.println("Thread is waiting for start");
             startSignal.await();
             doWork();
             doneSignal.countDown();

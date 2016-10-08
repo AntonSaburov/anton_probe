@@ -26,10 +26,10 @@ public class ThreadSynchExample
             }
         };
 
-        CyclicBarrier barrier1 = new CyclicBarrier(3);
-        CyclicBarrier barrier2 = new CyclicBarrier(3);
-//        CyclicBarrier barrier1 = new CyclicBarrier(3, barrier1Action);
-//        CyclicBarrier barrier2 = new CyclicBarrier(3, barrier2Action);
+//        CyclicBarrier barrier1 = new CyclicBarrier(3);
+//        CyclicBarrier barrier2 = new CyclicBarrier(3);
+        CyclicBarrier barrier1 = new CyclicBarrier(3, barrier1Action);
+        CyclicBarrier barrier2 = new CyclicBarrier(3, barrier2Action);
 
         CyclicBarrierRunnable barrierRunnable1 = new CyclicBarrierRunnable(barrier1, barrier2);
         CyclicBarrierRunnable barrierRunnable2 = new CyclicBarrierRunnable(barrier1, barrier2);

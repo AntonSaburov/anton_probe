@@ -2,7 +2,6 @@ package edu.javacourse.thread;
 
 public class Manager
 {
-
     public static final int COUNT = 3;
 
     private int value;
