@@ -22,7 +22,7 @@
         <dependency>
             <groupId>org.drools</groupId>
             <artifactId>drools-compiler</artifactId>
-            <version>6.3.0.Final-redhat-7</version>
+            <version>LATEST</version>
         </dependency>
 
         <dependency>
