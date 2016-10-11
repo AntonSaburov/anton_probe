@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<messagePassportDescriptor>
+    <ruleFlowConfigFile>test.xml</ruleFlowConfigFile>
+    <ruleFiles>
+        <ruleFile>1.drl</ruleFile>
+        <ruleFile>2.drl</ruleFile>
+        <ruleFile>3.drl</ruleFile>
+    </ruleFiles>
+</messagePassportDescriptor>
