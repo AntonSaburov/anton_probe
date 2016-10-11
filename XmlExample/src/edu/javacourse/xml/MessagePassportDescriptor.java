@@ -13,6 +13,10 @@ class MessagePassportDescriptor
     @XmlElement
     private String ruleFlowConfigFile;
     @XmlElement
+    private String opsClassName;
+    @XmlElement
+    private String schemaClassName;
+    @XmlElement
     private RuleFiles ruleFiles;
 
     public String getRuleFlowConfigFile() {
@@ -21,6 +25,22 @@ class MessagePassportDescriptor
 
     public void setRuleFlowConfigFile(String ruleFlowConfigFile) {
         this.ruleFlowConfigFile = ruleFlowConfigFile;
+    }
+
+    public String getOpsClassName() {
+        return opsClassName;
+    }
+
+    public void setOpsClassName(String opsClassName) {
+        this.opsClassName = opsClassName;
+    }
+
+    public String getSchemaClassName() {
+        return schemaClassName;
+    }
+
+    public void setSchemaClassName(String schemaClassName) {
+        this.schemaClassName = schemaClassName;
     }
 
     public RuleFiles getRuleFiles() {
