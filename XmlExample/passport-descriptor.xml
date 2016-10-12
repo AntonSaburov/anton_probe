@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<passportDescriptor>
+    <opsClassName>rzd.asoup3.message.Message_2867_2867</opsClassName>
+    <schemaClassName>rzd.asoup3.message.Schema_2867_2867</schemaClassName>
+    <ruleFlowConfigFile>/rule-flow.xml</ruleFlowConfigFile>
+    <ruleFiles>
+        <ruleFile>/rule-base.drl</ruleFile>
+        <ruleFile>/rule-base1.drl</ruleFile>
+        <ruleFile>/rule-base2.drl</ruleFile>
+    </ruleFiles>
+</passportDescriptor>

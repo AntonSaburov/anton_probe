@@ -17,18 +17,20 @@ public class XmlExample
     }
 
     private static void testXml() throws Exception {
-        JAXBContext jaxbContext = JAXBContext.newInstance(MessagePassportDescriptor.class);
+        JAXBContext jaxbContext = JAXBContext.newInstance(PassportDescriptor.class);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-        MessagePassportDescriptor desc = (MessagePassportDescriptor) jaxbUnmarshaller.unmarshal(loadXml());
+        PassportDescriptor desc = (PassportDescriptor) jaxbUnmarshaller.unmarshal(loadXml());
         System.out.println("RuleFlow:" + desc.getRuleFlowConfigFile());
         System.out.println("OpsClassName:" + desc.getOpsClassName());
         System.out.println("SchemaClassName:" + desc.getSchemaClassName());
-        desc.getRuleFiles().getRuleFile().stream().forEach(s -> System.out.println("File:" + s));
+        System.out.println("RuleFiles:" + desc.getRuleFiles());
+        
+//        desc.getRuleFiles().getRuleFile().stream().forEach(s -> System.out.println("File:" + s));
 
     }
 
     private static InputStream loadXml() throws Exception {
-        FileInputStream fis = new FileInputStream("file.xml");
+        FileInputStream fis = new FileInputStream("passport-descriptor.xml");
         byte[] file = new byte[fis.available()];
         fis.read(file);
         ByteArrayInputStream bais = new ByteArrayInputStream(file);

@@ -8,24 +8,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
 @XmlAccessorType(XmlAccessType.FIELD)
-class MessagePassportDescriptor
+class PassportDescriptor
 {
-    @XmlElement
-    private String ruleFlowConfigFile;
     @XmlElement
     private String opsClassName;
     @XmlElement
     private String schemaClassName;
     @XmlElement
+    private String ruleFlowConfigFile;
+    @XmlElement
     private RuleFiles ruleFiles;
-
-    public String getRuleFlowConfigFile() {
-        return ruleFlowConfigFile;
-    }
-
-    public void setRuleFlowConfigFile(String ruleFlowConfigFile) {
-        this.ruleFlowConfigFile = ruleFlowConfigFile;
-    }
 
     public String getOpsClassName() {
         return opsClassName;
@@ -43,6 +35,14 @@ class MessagePassportDescriptor
         this.schemaClassName = schemaClassName;
     }
 
+    public String getRuleFlowConfigFile() {
+        return ruleFlowConfigFile;
+    }
+
+    public void setRuleFlowConfigFile(String ruleFlowConfigFile) {
+        this.ruleFlowConfigFile = ruleFlowConfigFile;
+    }
+    
     public RuleFiles getRuleFiles() {
         return ruleFiles;
     }
