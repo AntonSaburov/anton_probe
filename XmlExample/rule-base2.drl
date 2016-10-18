@@ -1,0 +1,29 @@
+package rzd.asoup3.proto.rule.message.Pms2
+
+rule 'format-SF0-1000' dialect "mvel"
+when
+    eval(true)
+then
+    System.out.println("2-format-SF0-1000");
+end
+
+rule 'format-IF1-1001' dialect "mvel"
+when
+    eval(true)
+then
+    System.out.println("2-format-IF1-1001");
+end
+
+rule 'default-STANF-0000' dialect "mvel"
+when
+    eval(true)
+then
+    System.out.println("2-default-STANF-0000");
+end
+
+rule 'calc-DATSO' dialect "mvel"
+when
+    eval(true)
+then
+    System.out.println("2-calc-DATSO");
+end

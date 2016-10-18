@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<rule-flow kodOsn="2867" kodDop="2867">
+    <group name="format">
+        <rule package="rzd.asoup3.proto.rule.message.Pms28672867" name="format-SF0-1000" salience="0"
+              stopOnError="false" caseType="Error" enabled="true"/>
+        <rule package="rzd.asoup3.proto.rule.message.Pms28672867" name="format-IF1-1001" salience="0"
+              stopOnError="false" caseType="Error" enabled="true"/>
+    </group>
+    <group name="calc">
+        <rule package="rzd.asoup3.proto.rule.message.Pms28672867" name="default-STANF-0000" salience="0"
+              stopOnError="false" caseType="Error" enabled="true"/>
+        <rule package="rzd.asoup3.proto.rule.message.Pms28672867" name="calc-DATSO" salience="0" stopOnError="false"
+              caseType="Error" enabled="true"/>
+    </group>
+</rule-flow>
